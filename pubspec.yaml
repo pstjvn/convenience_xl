@@ -1,0 +1,6 @@
+name: convenience_xl
+description: Helpers and convenience methods and classes for StageXL.
+dependencies:
+  browser: any
+  stagexl:
+    git: https://github.com/bp74/StageXL.git
