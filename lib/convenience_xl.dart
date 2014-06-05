@@ -5,4 +5,4 @@ import 'dart:math' show PI;
 import 'package:stagexl/stagexl.dart';
 
 part 'src/rotation.dart';
-part 'src/directionhandler.dart';
+part 'src/eventhandlers.dart';
