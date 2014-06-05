@@ -269,11 +269,11 @@ class ArrowKeysHandler {
     switch (_state) {
       case 0:
         return null;
-      case 6:
+      case 3:
         return 'rightdown';
       case 2:
         return 'down';
-      case 3:
+      case 6:
         return 'downleft';
       case 4:
         return 'left';
@@ -295,11 +295,11 @@ class ArrowKeysHandler {
     switch (_state) {
       case 0:
         return null;
-      case 6:
+      case 3:
         return PI * 1 / 4;
       case 2:
         return PI * 2 / 4;
-      case 3:
+      case 6:
         return PI * 3 / 4;
       case 4:
         return PI * 1;
