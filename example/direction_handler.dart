@@ -9,11 +9,21 @@ void main() {
 
   renderLoop.addStage(stage);
 
-  var handler = new ArrowKeysHandler(stage);
-
-  handler.onKeyPressed.listen((num rad) {
-    print(handler.direction);
-  });
-
-  stage.focus = stage;
+  var rm = new ResourceManager()
+      ..addBitmapData('arrow', 'arrow.png')
+      ..load().then((_) {
+        var a = new Bitmap(_.getBitmapData('arrow'));
+        a
+            ..pivotX = a.width / 2
+            ..pivotY = a.height / 2
+            ..x = a.pivotX
+            ..y = a.pivotY;
+        stage.addChild(a);
+        var handler = new ArrowKeysHandler(stage);
+        handler.onKeyPressed.listen((num rad) {
+          a.rotation = rad;
+        });
+        stage.focus = stage;
+      }
+  );
 }
