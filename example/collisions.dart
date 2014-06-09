@@ -1,6 +1,7 @@
 import 'package:stagexl/stagexl.dart';
 import 'package:convenience_xl/convenience_xl.dart';
 import 'dart:html' show querySelector;
+import 'dart:math' show sin, cos;
 
 void main() {
   var stage = new Stage(querySelector('canvas'));
@@ -64,6 +65,8 @@ class Demo implements Animatable {
   bool advanceTime(num t) {
     rd.delta = t;
     asteroid.rotation += rd.radians;
+    ship.x = ship.x + 1 * cos(ship.rotation);
+    ship.y = ship.y + 1 * sin(ship.rotation);
     if (ship.collides(asteroid)) {
       juggler.removeTweens(asteroid);
       return false;
