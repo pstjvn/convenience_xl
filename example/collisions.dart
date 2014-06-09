@@ -1,7 +1,7 @@
 import 'package:stagexl/stagexl.dart';
 import 'package:convenience_xl/convenience_xl.dart';
 import 'dart:html' show querySelector;
-import 'dart:math' show sin, cos;
+import 'dart:math' show sin, cos, PI;
 
 void main() {
   var stage = new Stage(querySelector('canvas'));
@@ -38,12 +38,6 @@ void main() {
         // Adds collision detection (and rotation for fx)
         juggler.add(demo);
 
-        // Adds movement of the asteroid
-        juggler.add(new Tween(asteroid, 3, TransitionFunction.linear)
-            ..animate.x.to(stage.contentRectangle.width - asteroid.width + asteroid.pivotX)
-            ..animate.y.to(stage.contentRectangle.height - asteroid.height + asteroid.pivotY)
-            ..delay = 3);
-
         // Allow the user to rotate the spaceship (different collisions!)
         var handler = new ArrowKeysHandler(stage);
         handler.onKeyPressed.listen((num rad) {
@@ -61,12 +55,26 @@ class Demo implements Animatable {
   RotationDescriptor rd;
   Juggler juggler;
 
+  // The asteroid trajectory.
+  num horizontalAxis = 1000;
+  num verticalAxis = 400;
+  num radians = 0;
+
   Demo();
   bool advanceTime(num t) {
     rd.delta = t;
-    asteroid.rotation += rd.radians;
-    ship.x = ship.x + 1 * cos(ship.rotation);
-    ship.y = ship.y + 1 * sin(ship.rotation);
+    asteroid
+        ..rotation += rd.radians
+        ..x = horizontalAxis / 2 * cos(radians)
+        ..y = verticalAxis / 2 * sin(radians);
+    ship
+        ..x = ship.x + 1 * cos(ship.rotation)
+        ..y = ship.y + 1 * sin(ship.rotation);
+
+    radians += (PI / 180);
+
+    if (radians > PI / 180 * 90) radians = 0;
+
     if (ship.collides(asteroid)) {
       juggler.removeTweens(asteroid);
       return false;
