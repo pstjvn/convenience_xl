@@ -1,4 +1,5 @@
 name: convenience_xl
+version: 1.0.2
 description: Helpers and convenience methods and classes for StageXL.
 dependencies:
   browser: any
