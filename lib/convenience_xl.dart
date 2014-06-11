@@ -7,6 +7,7 @@ import 'dart:svg' show SvgElement;
 import 'package:stagexl/stagexl.dart';
 
 part 'src/background.dart';
+part 'src/button.dart';
 part 'src/collisions.dart';
 part 'src/eventhandlers.dart';
 part 'src/numbers.dart';

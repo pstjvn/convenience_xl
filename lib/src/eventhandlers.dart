@@ -10,13 +10,13 @@ part of convenience_xl;
  */
 class EventHandler {
 
-  static final int TAP = 1;
-  static final int SWIPE_TO_RIGHT = 2;
-  static final int SWIPE_TO_LEFT = 3;
-  static final int SWIPE_TO_TOP = 4;
-  static final int SWIPE_TO_BOTTOM = 5;
-  static final int LONG_PRESS = 6;
-  static final int DOUBLE_TAP = 7;
+  static const int TAP = 1;
+  static const int SWIPE_TO_RIGHT = 2;
+  static const int SWIPE_TO_LEFT = 3;
+  static const int SWIPE_TO_TOP = 4;
+  static const int SWIPE_TO_BOTTOM = 5;
+  static const int LONG_PRESS = 6;
+  static const int DOUBLE_TAP = 7;
 
   /// How many pixels should be considered as 'swipe' length.
   int swipeLengthTreshold = 100;
