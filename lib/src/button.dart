@@ -4,9 +4,9 @@ part of convenience_xl;
 
 class Button extends DisplayObjectContainer {
 
-  static int NORMAL = 0;
-  static int HOVERED = 1;
-  static int PRESSED = 2;
+  static const int NORMAL = 0;
+  static const int HOVERED = 1;
+  static const int PRESSED = 2;
 
   Bitmap bitmap;
   List<BitmapData> bitmaps = new List(3);
@@ -52,7 +52,7 @@ class Button extends DisplayObjectContainer {
     bitmap.bitmapData = bitmaps[pressed];
   }
 
-  void setButtonBitmap({state: 0, BitmapData data: null}) {
+  void setButtonBitmap({state: NORMAL, BitmapData data: null}) {
 
     bitmaps[state] = data;
     if (state == NORMAL) bitmap.bitmapData = data;
