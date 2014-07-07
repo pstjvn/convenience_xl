@@ -310,7 +310,7 @@ class ArrowKeysHandler {
       case 9:
         return PI * 7 / 4;
       case 1:
-        return PI * 2;
+        return 0;
       default:
         return null;
     }

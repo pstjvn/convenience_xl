@@ -15,3 +15,4 @@ part 'src/movement.dart';
 part 'src/rotation.dart';
 part 'src/sound.dart';
 part 'src/svg.dart';
+part 'src/masks.dart';

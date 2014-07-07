@@ -21,7 +21,6 @@ class Button extends DisplayObjectContainer {
 
 
     if (Multitouch.supportsTouchEvents) {
-
       Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
 
       onTouchBegin.listen((_) {
@@ -35,7 +34,6 @@ class Button extends DisplayObjectContainer {
       });
 
     } else {
-
       onMouseDown.listen((_) {
         _.stopPropagation();
         _setState(PRESSED);
