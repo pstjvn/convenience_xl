@@ -119,8 +119,8 @@ class Digits {
    * the digits are also in one row/column.
    */
   Digits(BitmapData source) {
-    int w = 0;
-    int h = 0;
+    num w = 0;
+    num h = 0;
     if (source.width > source.height) {
       w = source.width ~/ 10;
       h = source.height;
@@ -128,7 +128,7 @@ class Digits {
       w = source.width;
       h = source.height ~/ 10;
     }
-    _digits = new SpriteSheet(source, w, h);
+    _digits = new SpriteSheet(source, w.toInt(), h.toInt());
   }
 
   /// Overrides the '[]' operator to return one of the bitmaps for each digit.
@@ -165,7 +165,7 @@ class Score extends Bitmap {
    */
   Score(this._digits): super() {
     bitmaps = new Map();
-    _digitRect = new Rectangle(0, 0, _digits[0].width, _digits[0].height);
+    _digitRect = new Rectangle<int>(0, 0, _digits[0].width.toInt(), _digits[0].height.toInt());
     value = 0;
   }
 
@@ -177,7 +177,7 @@ class Score extends Bitmap {
     _value = score;
     String s = score.toString();
     if (!bitmaps.containsKey(s.length)) {
-      BitmapData data = new BitmapData(s.length * _digitRect.width,
+      BitmapData data = new BitmapData((s.length * _digitRect.width).toInt(),
           _digitRect.height);
       bitmaps[s.length] = data;
     }

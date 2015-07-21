@@ -3,7 +3,8 @@ import 'package:convenience_xl/convenience_xl.dart';
 import 'dart:html' show querySelector;
 
 void main() {
-  var stage = new Stage(querySelector('canvas'), webGL: true);
+  var stage = new Stage(querySelector('canvas'));
+//  var stage = new Stage(querySelector('canvas'), webGL: true);
   var renderLoop = new RenderLoop();
   var juggler = renderLoop.juggler;
 

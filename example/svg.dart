@@ -16,7 +16,8 @@ void main() {
           var bm = new Bitmap(bmd);
           stage.addChild(bm);
           // add little animation.
-          juggler.tween(bm, 2)
+          
+          juggler.addTween(bm, 2)
               ..animate.x.to(stage.contentRectangle.width - bm.width)
               ..animate.y.to(stage.contentRectangle.height - bm.height);
         });

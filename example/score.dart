@@ -9,7 +9,7 @@ void main() {
 
   renderLoop.addStage(stage);
 
-  var resourceManager = new ResourceManager()
+  new ResourceManager()
       ..addBitmapData('digits', 'digits.png')
       ..load().then((rm) {
         var couner = new Counter(new Digits(rm.getBitmapData('digits')))
