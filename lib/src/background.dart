@@ -25,14 +25,14 @@ class Background extends Bitmap {
     BitmapData dest = new BitmapData(_fullSize.width.toInt(),
         _fullSize.height.toInt());
 
-    dest.copyPixels(data, data.rectangle, new Point(repeatStart, 0));
+    dest.copyPixels(data, data.rectangle.align(), new Point(repeatStart, 0));
 
     int rx = (_fullSize.width / data.width).ceil();
     int ry = (_fullSize.height / data.height).ceil();
 
     if (repeatX && rx > 1) {
       for (var i = 1; i < rx; i++) {
-        dest.copyPixels(data, data.rectangle, new Point(i * data.width, 0));
+        dest.copyPixels(data, data.rectangle.align(), new Point(i * data.width, 0));
       }
     }
 
@@ -40,7 +40,7 @@ class Background extends Bitmap {
       for (var i = 1; i < ry; i++) {
         if (repeatX) {
           for (var j = 0; j < rx; j++) {
-            dest.copyPixels(data, data.rectangle, new Point(j * data.width, i *
+            dest.copyPixels(data, data.rectangle.align(), new Point(j * data.width, i *
                 data.height));
           }
         } else {
