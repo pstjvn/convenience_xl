@@ -6,7 +6,6 @@ void main() {
   var stage = new Stage(querySelector('canvas'), 
       options: new StageOptions()..inputEventMode = InputEventMode.MouseAndTouch);
   var renderLoop = new RenderLoop();
-  var juggler = renderLoop.juggler;
 
   renderLoop.addStage(stage);
 

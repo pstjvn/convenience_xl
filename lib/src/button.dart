@@ -19,31 +19,27 @@ class Button extends DisplayObjectContainer {
 
   void _bindEvents() {
 
-
-    if (Multitouch.supportsTouchEvents) {
-      Multitouch.inputMode = MultitouchInputMode.TOUCH_POINT;
-
-      onTouchBegin.listen((_) {
-        _.stopPropagation();
-        _setState(PRESSED);
-      });
-
-      onTouchEnd.listen((_) {
-        _.stopPropagation();
-        _setState(NORMAL);
-      });
-
-    } else {
-      onMouseDown.listen((_) {
-        _.stopPropagation();
-        _setState(PRESSED);
-      });
-
-      onMouseUp.listen((_) {
-        _.stopPropagation();
-        _setState(NORMAL);
-      });
-    }
+    onTouchBegin.listen((_) {
+      _.stopPropagation();
+      _setState(PRESSED);
+    });
+  
+    onTouchEnd.listen((_) {
+      _.stopPropagation();
+      _setState(NORMAL);
+    });
+  
+  
+    onMouseDown.listen((_) {
+      _.stopPropagation();
+      _setState(PRESSED);
+    });
+  
+    onMouseUp.listen((_) {
+      _.stopPropagation();
+      _setState(NORMAL);
+    });
+    
   }
 
   void _setState(int pressed) {
